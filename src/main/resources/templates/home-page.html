@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TO Do List | home</title>
+    <link rel="stylesheet" th:href="@{/css/home-style.css}">
+</head>
+<body>
+<div class="side-container">
+    <div class="menu-options">
+        <a th:href="@{showSearchPage}" class="menu-buttons">Search by date</a>
+        <a th:href="@{/deleteHistory}" class="menu-buttons"
+           onclick="return confirm('This will delete all previous task history. Continue?')">Delete History</a>
+    </div>
+
+</div>
+
+<h1>To Do List</h1>
+<div class="wrapper">
+    <div class="main-container">
+        <div class="form-container">
+            <form th:action="@{/saveTask}" th:object="${task}" method="post">
+                <input type="text" th:field="*{toDo}" placeholder="Add to list" class="input-box" is required>
+                <input type="submit" value="Add" class="add-btn">
+
+            </form>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Start Time</th>
+                        <th style="width: 55%;">Task</th>
+                        <th style="width: 20%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:each="tempTask : ${activeTask}">
+                    <td th:text="${#temporals.format(tempTask.startDateTime, 'dd MMM yyyy')}"></td>
+                    <td th:text="${tempTask.toDo}"></td>
+                    <td>
+                        <a th:href="@{/completeActiveTask(id=${tempTask.id})}" class="action-btn">Done</a>
+                        <a th:href="@{/deleteActiveTask(id=${tempTask.id})}" class="action-btn">Delete</a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <div class="side-bar">
+        <div class="count-container">
+            <div class="week-total-container">
+                <div class="number-container" th:text="${activeTasksCount}"></div>
+                <div>Active task</div>
+            </div>
+
+            <div class="week-total-container">
+                <div class="number-container" th:text="${totalTask}"></div>
+                <div>Total</div>
+            </div>
+
+        </div>
+
+        <div class="graph-container">
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

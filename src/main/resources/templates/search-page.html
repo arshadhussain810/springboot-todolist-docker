@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <link rel="stylesheet" th:href="@{/css/search-page-style.css}">
+</head>
+<body>
+    <h1>Search</h1>
+    <div class="wrapper">
+        <div class="form-container">
+            <form th:action="@{/search}" method="get">
+                <div class="form-group">
+                    <label for="from">From date</label>
+                    <input type="date" class="input-date" name="fromDate" id="from" is required>
+                </div>
+
+                <div class="form-group">
+                    <label for="to">To date</label>
+                    <input type="date" class="input-date" name="toDate" id="to" is required>
+                </div>
+                <div class="btn-container">
+                    <input type="submit" value="Search" class="search-btn">
+                    <a th:href="@{/home}" class="back-btn"> back</a>
+                </div>
+            </form>
+        </div>
+
+        <table class="table-container">
+            <thead>
+                <tr>
+                    <th style="width: 20;">Start date</th>
+                    <th style="width: 60;">Task</th>
+                    <th style="width: 20;">End date</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="tempTask : ${completedTaskList}">
+                    <td th:text="${#temporals.format(tempTask.startDate, 'dd MMM YYYY')}"></td>
+                    <td th:text="${tempTask.Task}"></td>
+                    <td th:text="${#temporals.format(tempTask.endDate, 'dd MMM YYYY')}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+
+</body>
+</html>

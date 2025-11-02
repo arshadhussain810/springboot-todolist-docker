@@ -1,0 +1,253 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+
+body{
+    background: white;
+    padding: 0px;
+    margin: 0px;
+}
+
+.side-container{
+
+    height: 100vh;
+    width: 10rem;
+    background: rgb(245, 214, 255);
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 5px 0px 5px grey;
+
+}
+
+.menu-options{
+    margin-top: 10rem;
+    /*border: 2px solid black;*/
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.menu-buttons{
+    border: 2px solid rgb(176, 79, 172);;
+    text-decoration: none;
+    width: auto;
+    flex: 0 0 auto;
+    height: 2.2rem;
+
+    cursor: pointer;
+    /*border: none;*/
+    padding: 0.5rem;
+
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background: white;
+    color: rgb(176, 79, 172);
+}
+
+h1{
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    color: rgb(140, 0, 168);
+    text-shadow: 2px 2px 2px grey;
+}
+
+.wrapper{
+    /*border: 2px solid black;*/
+    width: 1200px;
+    height: 550px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-left: 15rem;
+
+
+}
+
+.main-container{
+    /*border: 2px solid yellow;*/
+    border-radius: 1rem;
+    height: 100%;
+    flex: 65;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.form-container{
+    /*border: 1px solid black;*/
+    border-radius: 1rem;
+    box-sho
+    flex: 10;
+    margin: 1rem 1rem 1rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1rem 1rem 1rem;
+    box-shadow: 5px 5px 5px grey;
+    background: rgb(255, 173, 248);
+
+
+}
+
+form{
+    /*border: 2px solid pink;*/
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+form input[type="text"]{
+    flex: 1;
+    height: 2rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    border: none;
+
+}
+.add-btn{
+    width: 5rem;
+    flex: 0 0 auto;
+    height: 2.2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    border: none;
+    color: white;
+    background: rgb(176, 79, 172);
+    box-shadow: 0px 5px 5px grey;
+}
+
+.table-container{
+   /* border: 1px solid black;*/
+    border-radius: 1rem;
+    flex: 90;
+    margin: 0rem 1rem 1rem 1rem;
+    padding: 1rem 1rem 1rem 1rem;
+    /*box-shadow: 5px 5px 5px grey;*/
+   /* overflow: scroll;*/
+}
+
+table{
+    background:  white;
+    width: 100%;
+
+    border-collapse: separate;   /* default is collapse, must change */
+    border-spacing: 0 10px;      /* 0 = no space between columns, 10px = gap between rows */
+
+
+}
+
+th, td{
+    text-align: left;
+    padding: 1rem 0.6rem 1rem 0.6rem;
+
+
+}
+tr td{
+    box-shadow: 0px 5px 2px grey;
+}
+
+
+tr td:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  box-shadow: 0px 5px 2px grey;
+}
+
+tr td:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  box-shadow: 0px 5px 2px grey
+}
+
+tr th:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+tr th:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+
+th{
+    background: rgb(221, 110, 255);
+    box-shadow: 0px 5px 2px grey
+}
+td{
+
+}
+
+tr {
+  margin-bottom: 10px;
+  border-radius: 0.5rem;
+  background: rgb(245, 204, 255);
+}
+
+tr:nth-of-type(even){
+    background: rgb(252, 237, 252);
+}
+
+.action-btn{
+    text-decoration: none;
+    width: 5rem;
+    flex: 0 0 auto;
+    height: 2.2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    border: none;
+    color: white;
+    background: rgb(176, 79, 172);
+    padding: 0.5rem;
+}
+
+.side-bar{
+    /*border: 2px solid pink;*/
+    height: 100%;
+    flex: 35;
+    /*padding: 2rem;*/
+}
+
+.count-container{
+    /*border: 2px solid pink;*/
+    height: 10rem;
+    margin: 0.8rem 2rem 2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 5px 5px 5px grey;
+    border-radius: 1rem;
+    background: rgb(255, 222, 255);
+}
+
+.week-total-container{
+
+    text-align: center;
+}
+
+.number-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1rem solid rgb(255, 140, 255);
+    border-radius: 50%;
+    height: 6rem;
+    width: 6rem;
+    margin: 0.6rem;
+}
+
+.graph-container{
+    height: 18rem;
+    margin: 0.8rem 2rem 2rem 2rem;
+    box-shadow: 5px 5px 5px grey;
+    border-radius: 1rem;
+    background: rgb(255, 222, 255);
+
+}
