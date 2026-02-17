@@ -1,27 +1,29 @@
-#Build application
-FROM maven:eclipse-temurin:21-jdk AS build
+# ---------- Stage 1: Build ----------
+FROM maven:3.9.9 AS build
 
 WORKDIR /app
 
 COPY . .
 
-# Use a lightweight Java image as the base
+RUN mvn clean package -DskipTests
+
+
+# ---------- Stage 2: Run ----------
 FROM eclipse-temurin:21-jdk
+
 WORKDIR /app
 
-# Install MySQL client for the wait script
+# Install MySQL client
 RUN apt-get update && apt-get install -y mysql-client && rm -rf /var/lib/apt/lists/*
 
-# Copy the JAR file from the build context to the container
-COPY ./target/to-do-list-0.0.1-SNAPSHOT.jar app.jar
+# Copy jar from build stage
+COPY --from=build /app/target/*.jar app.jar
+
+# Copy wait script
 COPY wait-for-mysql.sh wait-for-mysql.sh
-# Expose the port Spring Boot runs on
-EXPOSE 8080
 
 RUN chmod +x wait-for-mysql.sh
 
-CMD ["./wait-for-mysql.sh"]
+EXPOSE 8080
 
-# Run the jar
-
-#ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["./wait-for-mysql.sh"]
