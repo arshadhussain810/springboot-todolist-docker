@@ -2,7 +2,6 @@
 
 echo "Waiting for MySQL to be ready..."
 
-# Keep trying to connect to MySQL until successful
 while ! mysqladmin ping -h"mysql" --silent; do
   sleep 2
 done
